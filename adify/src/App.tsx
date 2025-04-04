@@ -1,24 +1,15 @@
 import React from "react";
 import "./App.css";
-import Aurora from "./components/Backgrounds/Aurora/Aurora";
-import BlurText from "./components/TextAnimations/BlurText/BlurText";
-import Navbar from "./components/Navbar";
-import { Iphone15Pro } from "./components/Iphone15Pro";
+import Navbar from "./components/Navbar.js";
+import { Iphone15Pro } from "./components/Iphone15Pro.js";
 
 function App() {
   return (
     <div className="bg-gray-950 min-h-screen">
-      <Aurora blend={0.5} amplitude={1.0} />
       <Navbar />
       {/* Hero Section: Title, Subtitle and Button */}
       <div className="flex flex-col items-center justify-center text-center text-white py-20">
-        <BlurText
-          text="Potencia tu negocio con AI"
-          delay={150}
-          animateBy="words"
-          direction="top"
-          className="text-5xl font-bold mb-6 font-sans"
-        />
+        {/* agregar abajo animated text title */}
         <p className="text-lg md:text-2xl mb-8 text-gray-400">
           Optimiza tu estrategia publicitaria con inteligencia artificial y
           automatización.

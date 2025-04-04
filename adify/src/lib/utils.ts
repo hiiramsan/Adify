@@ -1,15 +1,23 @@
 import { twMerge } from "tailwind-merge";
-import React from "react";
+import React, { ReactElement } from "react";
+
+interface PropsWithClassName {
+  className?: string;
+  [key: string]: any; // Para permitir otras props
+}
 
 /**
- * Clone React element.
- * The function clones React element and adds Tailwind CSS classnames to the cloned element
- * @param element the React element to clone
- * @param classNames Tailwind CSS classnames
- * @returns { React.ReactElement } - Cloned React element
+ * Clone React element with merged Tailwind classes
+ * @param element React element to clone
+ * @param classNames Tailwind CSS classnames to merge
+ * @returns Cloned React element with merged classes
  */
-export function cloneElement(element: React.ReactElement, classNames: string) {
-    return React.cloneElement(element, {
-        className: twMerge(element.props.className, classNames)
-    });
+export function cloneElement(
+  element: ReactElement<PropsWithClassName>,
+  classNames: string
+): ReactElement<PropsWithClassName> {
+  return React.cloneElement(element, {
+    ...element.props,
+    className: twMerge(element.props.className, classNames)
+  });
 }
